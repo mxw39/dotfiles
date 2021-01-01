@@ -1,3 +1,4 @@
 function rh {
-	rm ~/.zsh_history
+    rm ~/.zsh_history
+    exec zsh
 }

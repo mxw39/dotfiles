@@ -91,6 +91,13 @@ source $ZSH/oh-my-zsh.sh
 
 ZSH_COMPDUMP=~/.cache/.zcompdump
 
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --kill gpg-agent
+gpgconf --launch gpg-agent
+gpg-connect-agent updatestartuptty /bye > /dev/null
+gpg-connect-agent "scd serialno" "learn --force" /bye > /dev/null
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.

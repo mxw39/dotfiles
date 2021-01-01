@@ -23,6 +23,7 @@
       path: omz/custom
       create: true
       force: true
+    ~/.gnupg/gpg-agent.conf: gpg-agent.conf
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
