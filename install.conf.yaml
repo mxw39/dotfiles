@@ -4,9 +4,18 @@
 
 - clean: ['~']
 
+- create:
+    - ~/.cache
+    - ~/.config
+
+- shell:
+  - sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 - link:
     ~/.vimrc: vimrc
-    ~/.zshrc: zshrc
+    ~/.zshrc:
+      path: zshrc
+      force: true
     ~/.config/kitty/kitty.conf:
       path: kitty/kitty.conf
       create: true
@@ -14,10 +23,6 @@
       path: omz/custom
       create: true
       force: true
-
-- create:
-    - ~/.cache
-    - ~/.config
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
