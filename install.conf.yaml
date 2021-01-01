@@ -1,0 +1,23 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.vimrc: vimrc
+    ~/.zshrc: zshrc
+    ~/.config/kitty/kitty.conf:
+      path: kitty/kitty.conf
+      create: true
+    ~/.oh-my-zsh/custom:
+      path: omz/custom
+      create: true
+      force: true
+
+- create:
+    - ~/.cache
+    - ~/.config
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
