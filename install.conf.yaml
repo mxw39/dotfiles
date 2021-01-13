@@ -19,10 +19,9 @@
     ~/.config/kitty/kitty.conf:
       path: kitty/kitty.conf
       create: true
-    ~/.oh-my-zsh/custom:
-      path: omz/custom
+    ~/.oh-my-zsh/custom/func.zsh:
+      path: omz/custom/func.zsh
       create: true
-      force: true
     ~/.gnupg/gpg-agent.conf: gpg-agent.conf
 
 - shell:
