@@ -22,7 +22,9 @@
     ~/.oh-my-zsh/custom/func.zsh:
       path: omz/custom/func.zsh
       create: true
-    ~/.gnupg/gpg-agent.conf: gpg-agent.conf
+    ~/.gnupg/gpg-agent.conf:
+      path: gpg-agent.conf
+      create: true
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
