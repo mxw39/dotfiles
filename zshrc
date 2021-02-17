@@ -109,3 +109,4 @@ gpg-connect-agent "scd serialno" "learn --force" /bye > /dev/null
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias okular="setsid okular"
