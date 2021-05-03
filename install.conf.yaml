@@ -8,8 +8,8 @@
     - ~/.cache
     - ~/.config
 - create:
-  ~/.gnupg:
-    mode: 0700
+    ~/.gnupg:
+      mode: 0700
 
 - shell:
   - sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

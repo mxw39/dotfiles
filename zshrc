@@ -68,7 +68,7 @@ ZSH_THEME="jnrowe"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git pass)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,12 +95,14 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/lib/distcc/bin:$PATH"
 
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --kill gpg-agent
-gpgconf --launch gpg-agent
-gpg-connect-agent updatestartuptty /bye > /dev/null
-gpg-connect-agent "scd serialno" "learn --force" /bye > /dev/null
+if [ ! -f $HOME/server ]; then
+  export GPG_TTY="$(tty)"
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --kill gpg-agent
+  gpgconf --launch gpg-agent
+  gpg-connect-agent updatestartuptty /bye > /dev/null
+  gpg-connect-agent "scd serialno" "learn --force" /bye > /dev/null
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
