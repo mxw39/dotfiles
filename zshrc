@@ -13,21 +13,12 @@ setopt hist_ignore_space
 
 setopt autocd
 setopt extendedglob
-
-alias l="ls -lah"
-alias ll="ls -lh"
-alias okular="setsid okular"
-
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
-source $HOME/.dotfiles/*.zsh
+setopt prompt_subst
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:git*' formats '[%b] '
 
 precmd() { vcs_info }
-setopt prompt_subst
 
 if [ $UID -eq 0 ]; then
   local user_prompt=$'\U26A0\UFE0F'" %F{red}%n%f"
@@ -44,3 +35,19 @@ if [ ! -f $HOME/server ] && [ ! $UID -eq 0 ]; then
   gpg-connect-agent updatestartuptty /bye > /dev/null
   gpg-connect-agent "scd serialno" "learn --force" /bye > /dev/null
 fi
+
+alias l="ls -lah"
+alias ll="ls -lh"
+alias okular="setsid okular"
+
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+rh() {
+  rm -f ~/.zsh_history
+  exec zsh
+}
+
+bz() {
+  setsid "$@" &> /dev/null < /dev/null
+}
