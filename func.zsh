@@ -1,5 +1,5 @@
 rh() {
-  rm ~/.zsh_history
+  rm -f ~/.zsh_history
   exec zsh
 }
 
